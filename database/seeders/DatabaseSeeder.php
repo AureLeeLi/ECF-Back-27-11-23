@@ -50,47 +50,50 @@ class DatabaseSeeder extends Seeder
         $brandDorsoline = Marque::factory()->create(['name' => 'Dorsoline']);
         $brandMemoryline = Marque::factory()->create(['name' => 'MemoryLine']);
 
-        //insertion des 4 références du catalogue
-        // $item1 = Matelas::factory()->create([
-        //     'name' => 'Malm Odo',
-        //     'cover' => 'https://www.ikea.com/fr/fr/images/products/malm-mobilier-chambre-lot-de-4-brun-noir__1102127_pe866548_s5.jpg?f=s',
-        //     'price' => 759.00,
-        //     'discount' => 230,
-        //     'category_id' => $confort,
-        //     'dimension_id' => $dim90x190,
-        // ]);
-        // $item1->marques()->attach($brandEpeda->name);
+        // insertion des 4 références du catalogue
+        $item1 = Matelas::factory()->create([
+            'name' => 'Malm Odo',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/malm-mobilier-chambre-lot-de-4-brun-noir__1102127_pe866548_s5.jpg?f=s',
+            'largeur' => 90,
+            'longueur' => 190,
+            'price' => 759.00,
+            'discount' => 230,
+            'category_id' => $confort,
+            'marque_id' => $brandEpeda
+        ]);
 
-        // $item2 = Matelas::factory()->create([
-        //     'name' => 'Sansonges',
-        //     'cover' => 'https://www.ikea.com/fr/fr/images/products/songesand-mobilier-chambre-lot-de-5-blanc__1102144_pe866545_s5.jpg?f=s',
-        //     'price' => 709.00,
-        //     'discount' => 100,
-        //     'category_id' => $assurance,
-        //     'dimension_id' => $dim90x190,
-        // ]);
-        // $item2->marques()->attach([$brandDreamway->name]);
+        $item2 = Matelas::factory()->create([
+            'name' => 'Sansonges',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/songesand-mobilier-chambre-lot-de-5-blanc__1102144_pe866545_s5.jpg?f=s',
+            'largeur' => 90,
+            'longueur' => 190,
+            'price' => 709.00,
+            'discount' => 100,
+            'category_id' => $assurance,
+            'marque_id' => $brandDreamway
+        ]);
 
         
-        // $item3 = Matelas::factory()->create([
-        //     'name' => 'Tallelattes',
-        //     'cover' => 'https://www.ikea.com/fr/fr/images/products/taellasen-cadre-de-lit-matelasse-matelas-kulsta-gris-vert-vesteroey-ferme__1206615_pe907554_s5.jpg?f=xxs',
-        //     'price' => 759.00,
-        //     'discount' => 230,
-        //     'category_id' => $essentiel,
-        //     'dimension_id' => $dim140x190,
-        // ]);
-        // $item3->marques()->attach([$brandBultex->name]);
+        $item3 = Matelas::factory()->create([
+            'name' => 'Tallelattes',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/taellasen-cadre-de-lit-matelasse-matelas-kulsta-gris-vert-vesteroey-ferme__1206615_pe907554_s5.jpg?f=xxs',
+            'largeur' => 140,
+            'longueur' => 190,
+            'price' => 759.00,
+            'discount' => 230,
+            'category_id' => $essentiel,
+            'marque_id' => $brandBultex
+        ]);
        
-        // $item4 = Matelas::factory()->create([
-        //     'name' => 'Acrédifoisanfré',
-        //     'cover' => 'https://www.ikea.com/fr/fr/images/products/nordli-cadre-de-lit-av-rangt-et-matelas-blanc-akrehamn-ferme__1102033_pe866854_s5.jpg?f=xxs',
-        //     'price' => 1019.00,
-        //     'discount' => 0,
-
-        //     'category_id' => $prestige,
-        //     'dimension_id' => $dim160x200,
-        // ]);
-        // $item4->marques()->attach([$brandEpeda->name]);
+        $item4 = Matelas::factory()->create([
+            'name' => 'Acrédifoisanfré',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/nordli-cadre-de-lit-av-rangt-et-matelas-blanc-akrehamn-ferme__1102033_pe866854_s5.jpg?f=xxs',
+            'largeur' => 160,
+            'longueur' => 200,
+            'price' => 1019.00,
+            'discount' => 0,
+            'category_id' => $prestige,
+            'marque_id' => $brandEpeda
+        ]);
     }
 }
