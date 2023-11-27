@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('cover');
-            $table->string('dimensions');
+            $table->integer('longueur');
+            $table->integer('largeur');
             $table->float('price');
             $table->integer('discount')->nullable();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();

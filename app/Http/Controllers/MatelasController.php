@@ -41,13 +41,12 @@ class MatelasController extends Controller
     
         //vérif des champs avant insertion
         $request->validate([
-            //Obligatoire, unique avec 2 caractères minimum
             'name' => 'required|min:2',
             'cover' => 'required|url',
-            'dimensions' => 'required',
+            'largeur' => 'required|numeric|min:90|max:200',
+            'longueur' => 'required|numeric|min:190|max:200',
             'price' => 'required|numeric',
-            'discount' => 'nullable|numeric|min:1|max:100',
-            //catégorie existe
+            'discount' => 'nullable|numeric|min:1|max:9999',
             'category' => 'exists:categories,id',
             'marque' =>'exists:marques,id'
         ]);
@@ -56,7 +55,8 @@ class MatelasController extends Controller
         $item = new Matelas();
         $item->name = $request->name;
         $item->cover = $request->cover;
-        $item->dimensions = $request->dimensions;
+        $item->largeur = $request->largeur;
+        $item->longueur = $request->longueur;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->category_id = $request->category;
@@ -93,21 +93,21 @@ class MatelasController extends Controller
         
         //vérif des champs avant insertion
         $request->validate([
-            //Obligatoire, unique avec 2 caractères minimum
             'name' => 'required|min:2',
             'cover' => 'required|url',
-            'dimensions' => 'required',
-            'price' => 'required|numeric',
-            'discount' => 'nullable|numeric|min:1|max:100',
-            //catégorie existe
+            'largeur' => 'required|numeric|min:90|max:200',
+            'longueur' => 'required|numeric|min:190|max:200',
+            'price' => 'required|numeric|between:0.01,9999.99',
+            'discount' => 'nullable|numeric|min:1|max:9999',
             'category' => 'exists:categories,id',
-            'marque' => 'exists:marques,id',
+            'marque' =>'exists:marques,id'
         ]);
         //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
 
         $item->name = $request->name;
         $item->cover = $request->cover;
-        $item->dimensions = $request->dimensions;
+        $item->largeur = $request->largeur;
+        $item->longueur = $request->longueur;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->category_id = $request->category;

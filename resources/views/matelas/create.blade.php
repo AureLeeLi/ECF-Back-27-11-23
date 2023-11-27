@@ -13,11 +13,20 @@
     <div class="flex">
         <form action="" method="post" class="w-50" enctype="multipart/form-data">
             @csrf
-            <input placeholder="Nom du modèle" type="text" name="name" value="{{ old('name') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+            <label for="name">Nom du modèle :</label>
+            <input type="text" name="name" value="{{ old('name') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+            <label for="cover">Image :</label>
             <input placeholder="media.jpg, .jpeg, .png, .gif link (url)" type="text" name="cover" value="{{ old('cover') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
-            <input placeholder="Dimensions : 90 x 190" type="text" name="dimensions" value="{{ old('dimensions') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
-            <input placeholder="Prix" type="number" name="price" min="0"  step="0.01" value="{{ old('price') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
-            <input placeholder="Promotion (optionel)" type="number" name="discount" value="{{ old('discount') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+            <div class="w-full flex items-center justify-center space-x-4">
+                <label for="largeur">Largeur :</label>
+                <input type="number" name="largeur" value="{{ old('largeur') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50]  w-[35%]">
+                <label for="longueur">Longueur :</label>
+                <input  type="number" name="longueur" value="{{ old('longueur') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-[35%]">
+            </div>
+            <label for="price">Prix :</label>
+            <input placeholder="Prix 00.00" type="number" name="price" min="0"  step="0.01" value="{{ old('price') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+            <label for="discount">Promotion(optionnelle) :</label>
+            <input  type="number" name="discount" value="{{ old('discount') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <label for="category">Catégorie :</label>
             <select name="category" id="category" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
                 @foreach ($categories as $category)

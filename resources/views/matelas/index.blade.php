@@ -14,7 +14,7 @@
                     <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
 
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->dimensions }}
+                        <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->longueur }} x {{$item->largeur}}
                          {{-- methode dimensions dans le modele Matelas et propriétés de l'objet dimension (id, name....)--}}
                     </p>
                     <p class="text-sm w-4/5 mb-2">
