@@ -43,7 +43,7 @@ class MatelasController extends Controller
             'name' => 'required|min:2',
             'dimensions' => 'required',
             'price' => 'required|numeric',
-            'discount' => 'nullable|numeric|min:1|max:4',
+            'discount' => 'nullable|numeric|min:1|max:100',
             'released_at' => 'date',
             //catégorie existe
             'category' => 'exists:categories,id',
@@ -67,11 +67,49 @@ class MatelasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MatelasController $matelasController)
+    public function edit($id)
     {
-        //
+        $item = Matelas::findOrFail($id);
+      
+        return view('matelas/edit', [
+            'categories' => Category::all()->sortBy('name'),
+            'item' => $item,
+        ]);
+
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+    
+        $item = Matelas::findOrFail($id);
+        
+        //vérif des champs avant insertion
+        $request->validate([
+            //Obligatoire, unique avec 2 caractères minimum
+            'name' => 'required|min:2',
+            'dimensions' => 'required',
+            'price' => 'required|numeric',
+            'discount' => 'nullable|numeric|min:1|max:100',
+            'released_at' => 'date',
+            //catégorie existe
+            'category' => 'exists:categories,id',
+        ]);
+        //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
+
+        $item->name = $request->name;
+        // $item->cover = fake()->imageUrl();
+        $item->dimensions = $request->dimensions;
+        $item->price = $request->price;
+        $item->discount = $request->discount;
+        $item->category_id = $request->category;
+        $item->save();
+       
+        return redirect('/catalogue');
+    }
+    
     /**
      * Remove the specified resource from storage.
      */

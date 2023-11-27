@@ -32,8 +32,8 @@
                 {{-- @if (Auth::user() && Auth::user()->id == $movie->user_id) --}}
                 {{-- on affiche modifier supprimer si on est connecté et qu'on a le film --}}
                 <div class="flex text-center text-xs space-x-2">
-                    <a href="/film/{{ $item->id}}/modifier" class="bg-cyan-700 text-white rounded-lg px-2 py-2 my-4 hover:bg-cyan-500 hover:text-black">Modifier</a>
-                    <a href="/film/{{$item->id}}/supprimer" class="bg-cyan-800 text-white rounded-lg px-2 py-2 my-4 hover:bg-cyan-600 hover:text-black" onclick='return confirm("Es-tu sûr de vouloir supprimer la référence {{$item->name}} ?")'>Supprimer</a>
+                    <a href="/catalogue/{{$item->id}}/modifier" class="bg-cyan-700 text-white rounded-lg px-2 py-2 my-4 hover:bg-cyan-500 hover:text-black">Modifier</a>
+                    <a href="/catalogue/{{$item->id}}/supprimer" class="bg-cyan-800 text-white rounded-lg px-2 py-2 my-4 hover:bg-cyan-600 hover:text-black" onclick='return confirm("Es-tu sûr de vouloir supprimer la référence {{$item->name}} ?")'>Supprimer</a>
                     {{-- on click = pop confirmation de suppression --}}
                 </div>
                 {{-- @endif --}}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MatelasController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Home Controller
+Route::get('/', [HomeController::class, 'index']); //page d'accueil literie 3000
 
 //Matelas Controller
 Route::get('/catalogue', [MatelasController::class, 'index']); //listing des matelas du catalogue
 Route::get('/catalogue/ajout', [MatelasController::class, 'create']); //formulaire d'ajout d'une référence
 Route::post('/catalogue/ajout', [MatelasController::class, 'store']); //validation de l'ajout
+Route::get('/catalogue/{id}/modifier', [MatelasController::class, 'edit']); //formulaire de modification d'une référence
+Route::post('/catalogue/{id}/modifier', [MatelasController::class, 'update']); //validation des modifications
