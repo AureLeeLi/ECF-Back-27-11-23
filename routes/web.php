@@ -24,3 +24,4 @@ Route::get('/catalogue/ajout', [MatelasController::class, 'create']); //formulai
 Route::post('/catalogue/ajout', [MatelasController::class, 'store']); //validation de l'ajout
 Route::get('/catalogue/{id}/modifier', [MatelasController::class, 'edit']); //formulaire de modification d'une référence
 Route::post('/catalogue/{id}/modifier', [MatelasController::class, 'update']); //validation des modifications
+Route::get('/catalogue/{id}/supprimer', [MatelasController::class, 'destroy']); //suppresion de la référence de la bdd

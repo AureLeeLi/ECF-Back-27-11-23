@@ -113,8 +113,11 @@ class MatelasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MatelasController $matelasController)
+    public function destroy($id)
     {
-        //
+        Matelas::destroy($id);
+       
+        return redirect('/catalogue');
+
     }
 }
