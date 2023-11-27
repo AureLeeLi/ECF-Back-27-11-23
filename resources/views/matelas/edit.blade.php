@@ -40,7 +40,7 @@
                 @endforeach
             </select>
 
-            <button class="bg-cyan-700 text-white rounded-lg px-4 my-2 py-2 my-6 hover:bg-cyan-500 hover:text-black">Modifier {{$item->name}}</button>
+            <button class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]"><i class="fa-solid fa-check pr-2"></i>Modifier {{$item->name}}</button>
         </form>
     </div>
 

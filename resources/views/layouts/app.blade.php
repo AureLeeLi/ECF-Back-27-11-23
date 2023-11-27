@@ -11,9 +11,9 @@
 </head>
 <body class="font-[Nunito] flex flex-col justify-between h-screen text-[#112A46]">
 
-    <nav class="bg-[#7c8479] flex items-center justify-center space-x-32 p-8 mb-6 text-xl font-bold">
+    <nav class="bg-[#abb1a3] flex items-center justify-center space-x-32 p-8 mb-6 text-xl font-bold">
         <div>
-            <img src="\uploads\logo fond transparent.png" alt="logo Literie 3000" class="h-24">
+            <img src="\uploads\logo fond transparent.png" alt="logo Literie 3000" class="h-16 lg:h-24">
         </div>
         <div class="md:flex md:text-md md:space-x-6 lg:space-x-8 text-amber-50">
             <a href="/" class="hover:underline underline-offset-8">Accueil</a>

@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="flex items-center justify-center space-x-12">
-        <h3 class="text-4xl font-bold my-4">Notre Catalogue</h3>
-        <a href="/catalogue/ajout" class="bg-cyan-700 text-white rounded-lg px-4 py-2 my-6 hover:bg-cyan-500 hover:text-black"><i class="fa-solid fa-plus pr-2" style="color: #ffffff;"></i> Ajouter une référence</a>
+        <h3 class="text-4xl font-bold my-8">Notre Catalogue</h3>
+        <a href="/catalogue/ajout" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]"><i class="fa-solid fa-plus pr-2" style="color: #ffffff;"></i>Ajouter</a>
     </div>
     <div class="flex flex-wrap mx-auto justify-center">
         @foreach ($matelas as $item)
@@ -15,7 +15,6 @@
 
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->longueur }} x {{$item->largeur}}
-                         {{-- methode dimensions dans le modele Matelas et propriétés de l'objet dimension (id, name....)--}}
                     </p>
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}}€ | Promotion : {{$item->discount}} €
@@ -23,7 +22,8 @@
                     @if ($item->discount) 
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-percent px-2" style="color: #000000;"></i> Prix remisé  : 
-                        {{($item->price = $item->price-$item->discount)}} € (- {{($item->discount/$item->price)*100}} %)
+                        {{-- {{($item->price = $item->price-$item->discount)}} € --}}
+                        - {{($item->discount/$item->price)*100}} %
                     </p>
                     @endif
                     <p class="text-sm w-4/5 mb-2">
@@ -41,9 +41,9 @@
                 </a>
                 {{-- @if (Auth::user() && Auth::user()->id == $movie->user_id) --}}
                 {{-- on affiche modifier supprimer si on est connecté et qu'on a le film --}}
-                <div class="flex text-center text-xs space-x-2">
-                    <a href="/catalogue/{{$item->id}}/modifier" class="bg-cyan-700 text-white rounded-lg px-2 py-2 my-4 hover:bg-cyan-500 hover:text-black">Modifier</a>
-                    <a href="/catalogue/{{$item->id}}/supprimer" class="bg-cyan-800 text-white rounded-lg px-2 py-2 my-4 hover:bg-cyan-600 hover:text-black" onclick='return confirm("Es-tu sûr de vouloir supprimer la référence {{$item->name}} ?")'>Supprimer</a>
+                <div class="flex text-center space-x-2">
+                    <a href="/catalogue/{{$item->id}}/modifier" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]"><i class="fa-regular fa-pen-to-square" style="color: #070707;"></i></a>
+                    <a href="/catalogue/{{$item->id}}/supprimer" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]" onclick='return confirm("Es-tu sûr de vouloir supprimer la référence {{$item->name}} ?")'><i class="fa-solid fa-trash" style="color: #070707;"></i></a>
                     {{-- on click = pop confirmation de suppression --}}
                 </div>
                 {{-- @endif --}}
