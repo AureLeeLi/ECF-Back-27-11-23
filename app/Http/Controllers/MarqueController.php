@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Marque;
 use App\Models\Matelas;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class MarqueController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('categories/index',[
-        'categories'=> Category::all(),
-        ]);
-        
+        return view('matelassiers/index',[
+            'marques'=> Marque::all(),
+            ]);
     }
 
     public function create()
     {
-        return view('categories/create');
+        return view('matelassiers/create');
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -35,11 +35,11 @@ class CategoryController extends Controller
         ]);
         //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
 
-        $category = new Category();
-        $category->name = $request->name;
-        $category->save();
+        $marque = new Marque();
+        $marque->name = $request->name;
+        $marque->save();
        
-        return redirect('/categories');
+        return redirect('/matelassiers');
     }
 
     /**
@@ -47,18 +47,18 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id); // Select * from categories where id = :id OU 404
+        $marque = Marque::findOrFail($id); 
 
-        return view('categories/about-category', [
-            'category'=> $category,
-            'matelas' => Matelas::all()->whereIn('category_id', $category->id),
+        return view('matelassiers/about', [
+            'marque'=> $marque,
+            'matelas' => Matelas::all()->whereIn('marque_id', $marque->id),
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Marque $marque)
     {
         //
     }
@@ -66,11 +66,8 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Marque $marque)
     {
-        Category::destroy($id);
-       
-        return redirect('/categories');
-
+        //
     }
 }
