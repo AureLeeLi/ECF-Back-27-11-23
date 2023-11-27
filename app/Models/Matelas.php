@@ -11,15 +11,12 @@ class Matelas extends Model
 
     public function marques()
     {
-        return $this->belongsToMany(Marque::class);
+        return $this->belongsTo(Marque::class, 'marque_id');
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
-    public function dimensions()
-    {
-        return $this->belongsTo(Dimension::class);
-    }
+   
 }

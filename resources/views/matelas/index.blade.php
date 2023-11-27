@@ -1,11 +1,11 @@
 @extends('layouts/app')
 
 @section('content')
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-center space-x-12">
         <h3 class="text-4xl font-bold my-4">Notre Catalogue</h3>
         <a href="/catalogue/ajout" class="bg-cyan-700 text-white rounded-lg px-4 py-2 my-6 hover:bg-cyan-500 hover:text-black"><i class="fa-solid fa-plus pr-2" style="color: #ffffff;"></i> Ajouter une référence</a>
     </div>
-    <div class="flex flex-wrap mx-auto">
+    <div class="flex flex-wrap mx-auto justify-center">
         @foreach ($matelas as $item)
         <div class="w-1/2 md:w-1/3 lg:w-1/3 my-4">
             <div class="flex flex-col justify-between h-full">
@@ -14,28 +14,30 @@
                     <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
 
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{$item->dimension_id}}
+                        <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->dimensions }}
+                         {{-- methode dimensions dans le modele Matelas et propriétés de l'objet dimension (id, name....)--}}
                     </p>
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}}€ | <i class="fa-solid fa-percent px-2" style="color: #000000;"></i> Promotion : {{$item->discount}} €
+                        <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}}€ | Promotion : {{$item->discount}} €
                     </p>
+                    @if ($item->discount) 
                     <p class="text-sm w-4/5 mb-2">
-                        Prix remisé  : @if ($item->discount) 
+                        <i class="fa-solid fa-percent px-2" style="color: #000000;"></i> Prix remisé  : 
                         {{($item->price = $item->price-$item->discount)}} € (- {{($item->discount/$item->price)*100}} %)
-                        @endif
                     </p>
+                    @endif
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-bed pr-2" style="color: #000000;"></i> Catégorie :  @if ($item->category_id)
-                        {{ $item->category->name }}
+                        {{ $item->category?->name }}
                         {{-- methode catégorie dans le modele Matelas et propriétés de l'objet catégory (id, name....)--}}
                         @endif
                     </p>
-                    {{-- <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-regular fa-copyright pr-2" style="color: #000000;"></i> Marque(s) :  @if ($item->category_id)
-                        {{ $item->category->name }}
-                        {{-- methode catégorie dans le modele Matelas et propriétés de l'objet catégory (id, name....)--}}
-                        {{-- @endif
-                    </p> --}}
+                    <p class="text-sm w-4/5 mb-2">
+                        <i class="fa-regular fa-copyright pr-2" style="color: #000000;"></i> Marque :  @if ($item->marque_id)
+                        {{ $item->marques?->name }}
+                        {{-- methode marques dans le modele Matelas et propriétés de l'objet marques (id, name....)--}}
+                         @endif
+                    </p>
                 </a>
                 {{-- @if (Auth::user() && Auth::user()->id == $movie->user_id) --}}
                 {{-- on affiche modifier supprimer si on est connecté et qu'on a le film --}}

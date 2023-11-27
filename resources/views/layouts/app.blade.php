@@ -11,13 +11,14 @@
 </head>
 <body class="font-[Nunito] flex flex-col justify-between h-screen text-[#112A46]">
 
-    <nav class="bg-cyan-700 flex justify-around items-center p-8 mb-6 text-xl font-bold">
-        <img src="\uploads\logo fond transparent.png" alt="logo Literie 3000" class="h-24">
+    <nav class="bg-[#7c8479] flex items-center justify-center space-x-32 p-8 mb-6 text-xl font-bold">
+        <div>
+            <img src="\uploads\logo fond transparent.png" alt="logo Literie 3000" class="h-24">
+        </div>
         <div class="md:flex md:text-md md:space-x-6 lg:space-x-8 text-amber-50">
             <a href="/" class="hover:underline underline-offset-8">Accueil</a>
             <a href="/catalogue" class="hover:underline underline-offset-8">Notre catalogue</a>
         </div>
-        <a href="/a-propos" class="hover:underline underline-offset-8">A Propos</a>
         {{-- <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
             @auth
             <p>{{Auth::user()->email}}</p>
@@ -38,9 +39,10 @@
 
     </div>
 
-    <footer class="text-4xl text-white font-bold bg-cyan-700 text-center">
+    <footer class="text-2xl text-white font-bold bg-[#7c8479] text-center flex items-center justify-center">
 
-        Literie 3000 &copy; {{ date('Y')}}
+        <img src="\uploads\3.png" alt="logo Literie 3000" class="h-12">
+        <p>Literie 3000 &copy; {{ date('Y')}}</p>
 
     </footer>
 </body>

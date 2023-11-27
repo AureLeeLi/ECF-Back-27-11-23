@@ -14,14 +14,20 @@
         <form action="" method="post" class="w-50" enctype="multipart/form-data">
             @csrf
             <input placeholder="Nom du modèle" type="text" name="name" value="{{ old('name') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
-            <input placeholder="media.jpg, .jpeg, .png, .gif" type="file" name="cover" value="{{ old('cover') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+            <input placeholder="media.jpg, .jpeg, .png, .gif link (url)" type="text" name="cover" value="{{ old('cover') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <input placeholder="Dimensions : 90 x 190" type="text" name="dimensions" value="{{ old('dimensions') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <input placeholder="Prix" type="number" name="price" min="0"  step="0.01" value="{{ old('price') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <input placeholder="Promotion (optionel)" type="number" name="discount" value="{{ old('discount') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <label for="category">Catégorie :</label>
-            <select name="category" id="category" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-1/2">
+            <select name="category" id="category" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
                 @foreach ($categories as $category)
                     <option @selected($category->id == old('category')) value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <label for="marque">Marque :</label>
+            <select name="marque" id="marque" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+                @foreach ($marques as $marque)
+                    <option @selected($marque->id == old('marque')) value="{{ $marque->id }}">{{ $marque->name }}</option>
                 @endforeach
             </select>
 

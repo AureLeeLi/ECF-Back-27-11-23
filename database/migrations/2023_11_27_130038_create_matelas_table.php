@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('cover');
+            $table->string('dimensions');
             $table->float('price');
             $table->integer('discount')->nullable();
-            $table->foreignId('category_id')->nullable()->constrained();
-            $table->foreignId('dimension_id')->nullable()->constrained();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('marque_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

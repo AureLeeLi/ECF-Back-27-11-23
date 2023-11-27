@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Marque;
 use App\Models\Matelas;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,7 @@ class MatelasController extends Controller
     {
         return view('matelas/create', [
             'categories' => Category::all()->sortBy('name'),
+            'marques' => Marque::all()->sortBy('name'),            
             //utilisation des catégories dans le select input
         ]);
     }
@@ -41,22 +43,24 @@ class MatelasController extends Controller
         $request->validate([
             //Obligatoire, unique avec 2 caractères minimum
             'name' => 'required|min:2',
+            'cover' => 'required|url',
             'dimensions' => 'required',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric|min:1|max:100',
-            'released_at' => 'date',
             //catégorie existe
             'category' => 'exists:categories,id',
+            'marque' =>'exists:marques,id'
         ]);
         //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
 
         $item = new Matelas();
         $item->name = $request->name;
-        $item->cover = fake()->imageUrl();
+        $item->cover = $request->cover;
         $item->dimensions = $request->dimensions;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->category_id = $request->category;
+        $item->marque_id = $request->marque;
         $item->save();
        
         return redirect('/catalogue');
@@ -73,6 +77,7 @@ class MatelasController extends Controller
       
         return view('matelas/edit', [
             'categories' => Category::all()->sortBy('name'),
+            'marques' => Marque::all()->sortBy('name'),   
             'item' => $item,
         ]);
 
@@ -90,21 +95,23 @@ class MatelasController extends Controller
         $request->validate([
             //Obligatoire, unique avec 2 caractères minimum
             'name' => 'required|min:2',
+            'cover' => 'required|url',
             'dimensions' => 'required',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric|min:1|max:100',
-            'released_at' => 'date',
             //catégorie existe
             'category' => 'exists:categories,id',
+            'marque' => 'exists:marques,id',
         ]);
         //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
 
         $item->name = $request->name;
-        // $item->cover = fake()->imageUrl();
+        $item->cover = $request->cover;
         $item->dimensions = $request->dimensions;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->category_id = $request->category;
+        $item->marque_id = $request->marque;
         $item->save();
        
         return redirect('/catalogue');
