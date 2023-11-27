@@ -14,7 +14,7 @@
                     <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
 
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->longueur }} x {{$item->largeur}}
+                        <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->largeur }} x {{$item->longueur}}
                     </p>
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}}€ | Promotion : {{$item->discount}} €
