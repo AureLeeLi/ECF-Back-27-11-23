@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Nunito:400,700&display=swap" />
+    <link rel="icon" type="image/png" href="\uploads\3.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script src="https://kit.fontawesome.com/477e17b079.js" crossorigin="anonymous"></script>
     <title>Literie 3000</title>
 </head>
-<body class="font-[Nunito] flex flex-col justify-between h-screen">
+<body class="font-[Nunito] flex flex-col justify-between h-screen text-[#112A46]">
 
-    <nav class="bg-cyan-700 flex justify-between items-center p-8 mb-6">
-        <h1 class="text-2xl md:text-4xl text-white font-bold">Literie 3000</h1>
-        <div class="text-xs md:flex md:text-md md:space-x-6 lg:space-x-8 font-bold text-amber-50">
+    <nav class="bg-cyan-700 flex justify-around items-center p-8 mb-6 text-xl font-bold">
+        <img src="\uploads\logo fond transparent.png" alt="logo Literie 3000" class="h-24">
+        <div class="md:flex md:text-md md:space-x-6 lg:space-x-8 text-amber-50">
             <a href="/" class="hover:underline underline-offset-8">Accueil</a>
             <a href="/catalogue" class="hover:underline underline-offset-8">Notre catalogue</a>
-            <a href="/a-propos" class="hover:underline underline-offset-8">A Propos</a>
         </div>
-        <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
+        <a href="/a-propos" class="hover:underline underline-offset-8">A Propos</a>
+        {{-- <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
             @auth
             <p>{{Auth::user()->email}}</p>
               <div class="relative">
@@ -28,7 +29,7 @@
             @else
               <a href="/login">Connexion</a>
             @endauth
-        </div>
+        </div> --}}
     </nav>
 
     <div class="max-w-5xl mx-auto px-3 py-6 w-full">
