@@ -19,8 +19,5 @@ class Matelas extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
    
-    public function price($price) {
-        $price = $this->price;
-        return number_format($price, 2, ',', ' ');
-    }
+
 }

@@ -22,7 +22,7 @@ class MatelasController extends Controller
         ]);
     }
 
-  
+    
     
     public function create()
     {

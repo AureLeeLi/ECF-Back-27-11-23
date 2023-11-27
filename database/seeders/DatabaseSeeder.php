@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         // insertion des 4 références du catalogue
         $item1 = Matelas::factory()->create([
             'name' => 'Malm Odo',
-            'cover' => 'https://www.ikea.com/fr/fr/images/products/malm-mobilier-chambre-lot-de-4-brun-noir__1102127_pe866548_s5.jpg?f=s',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/valevag-matelas-a-ressorts-ensaches-mi-ferme-bleu-clair__0928313_pe789779_s5.jpg?f=xxs',
             'largeur' => 90,
             'longueur' => 190,
             'price' => 759.00,
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
 
         $item2 = Matelas::factory()->create([
             'name' => 'Sansonges',
-            'cover' => 'https://www.ikea.com/fr/fr/images/products/songesand-mobilier-chambre-lot-de-5-blanc__1102144_pe866545_s5.jpg?f=s',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/afjaell-matelas-en-mousse-mi-ferme-blanc__1027660_pe834973_s5.jpg?f=xxs',
             'largeur' => 90,
             'longueur' => 190,
             'price' => 709.00,
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
         
         $item3 = Matelas::factory()->create([
             'name' => 'Tallelattes',
-            'cover' => 'https://www.ikea.com/fr/fr/images/products/taellasen-cadre-de-lit-matelasse-matelas-kulsta-gris-vert-vesteroey-ferme__1206615_pe907554_s5.jpg?f=xxs',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/vestmarka-matelas-a-ressorts-ferme-bleu-clair__0928311_pe789776_s5.jpg?f=xxs',
             'largeur' => 140,
             'longueur' => 190,
             'price' => 759.00,
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
        
         $item4 = Matelas::factory()->create([
             'name' => 'Acrédifoisanfré',
-            'cover' => 'https://www.ikea.com/fr/fr/images/products/nordli-cadre-de-lit-av-rangt-et-matelas-blanc-akrehamn-ferme__1102033_pe866854_s5.jpg?f=xxs',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/agotnes-matelas-en-mousse-ferme-bleu-clair__1150598_pe884638_s5.jpg?f=xxs',
             'largeur' => 160,
             'longueur' => 200,
             'price' => 1019.00,
