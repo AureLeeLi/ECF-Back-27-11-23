@@ -20,7 +20,6 @@ class MatelasFactory extends Factory
         return [
             'name' => fake()->word(),
             'cover' => fake()->imageUrl(),
-            'dimensions' => fake()->sentence(2),
             'price' => fake()->randomFloat(2,100, 1500),
             'discount' => fake()->numberBetween(0,500),
         ];

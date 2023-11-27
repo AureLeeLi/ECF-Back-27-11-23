@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Dimension;
 use App\Models\Marque;
 use App\Models\Matelas;
 use Illuminate\Database\Seeder;
@@ -23,14 +24,78 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Category::factory(4)->create();
-        Marque::factory(5)->create();
-        Matelas::factory(20)->create(function(){
-            return [
-                'category_id' => rand(1,4),
-            ];
-        });
+        //test avec Factory
+        // Category::factory(4)->create();
+        // Dimension::factory(5)->create();
+        // Marque::factory(5)->create();
+        // Matelas::factory(20)->create(function(){
+        //     return [
+        //         'category_id' => rand(1,4),
+        //         'dimension_id' => rand(1,5),
+        //     ];
+        // });
 
-    
+        //creation des catégories de matelas
+        $confort = Category::factory()->create(['name' => 'Matelas Confort']);
+        $assurance = Category::factory()->create(['name' => 'Matelas Assurance']);
+        $essentiel = Category::factory()->create(['name' => 'Matelas Essentiel']);
+        $prestige = Category::factory()->create(['name' => 'Matelas Prestige']);
+
+        //création des dimensions des matelas
+        $dim90x190 = Dimension::factory()->create(['size' => '90x190']);
+        $dim140x190 = Dimension::factory()->create(['size' => '140x190']);
+        $dim160x200 = Dimension::factory()->create(['size' => '160x200']);
+        $dim180x200 = Dimension::factory()->create(['size' => '180x200']);
+        $dim200x200 = Dimension::factory()->create(['size' => '200x200']);
+
+        //ajout des marques de matelas
+        $brandEpeda = Marque::factory()->create(['name' => 'Epeda']);
+        $brandDreamway = Marque::factory()->create(['name' => 'Dreamway']);
+        $brandBultex = Marque::factory()->create(['name' => 'Bultex']);
+        $brandDorsoline = Marque::factory()->create(['name' => 'Dorsoline']);
+        $brandMemoryline = Marque::factory()->create(['name' => 'MemoryLine']);
+
+        //insertion des 4 références du catalogue
+       
+        $item1 = Matelas::factory()->create([
+            'name' => 'Malm Odo',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/malm-mobilier-chambre-lot-de-4-brun-noir__1102127_pe866548_s5.jpg?f=s',
+            'price' => 759.00,
+            'discount' => 230,
+            'category_id' => $confort,
+            'dimension_id' => $dim90x190,
+        ]);
+        $item1->marques()->attach([$brandEpeda->id]);
+
+        $item2 = Matelas::factory()->create([
+            'name' => 'Sansonges',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/songesand-mobilier-chambre-lot-de-5-blanc__1102144_pe866545_s5.jpg?f=s',
+            'price' => 709.00,
+            'discount' => 100,
+            'category_id' => $assurance,
+            'dimension_id' => $dim90x190,
+        ]);
+        $item2->marques()->attach([$brandDreamway->id]);
+
+        
+        $item3 = Matelas::factory()->create([
+            'name' => 'Tallelattes',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/taellasen-cadre-de-lit-matelasse-matelas-kulsta-gris-vert-vesteroey-ferme__1206615_pe907554_s5.jpg?f=xxs',
+            'price' => 759.00,
+            'discount' => 230,
+            'category_id' => $essentiel,
+            'dimension_id' => $dim140x190,
+        ]);
+        $item3->marques()->attach([$brandBultex->id]);
+       
+        $item4 = Matelas::factory()->create([
+            'name' => 'Acrédifoisanfré',
+            'cover' => 'https://www.ikea.com/fr/fr/images/products/nordli-cadre-de-lit-av-rangt-et-matelas-blanc-akrehamn-ferme__1102033_pe866854_s5.jpg?f=xxs',
+            'price' => 1019.00,
+            'discount' => 0,
+            'category_id' => $prestige,
+            'dimension_id' => $dim160x200,
+        ]);
+        $item4->marques()->attach([$brandEpeda->id]);
     }
 }

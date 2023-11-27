@@ -18,4 +18,8 @@ class Matelas extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function dimensions()
+    {
+        return $this->belongsTo(Dimension::class);
+    }
 }
