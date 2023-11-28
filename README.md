@@ -1,6 +1,5 @@
-```markdown
-![Nombre de jours depuis le début du code](https://badgen.net/https://api.countapi.xyz/hit/AureLeeLi/ECF-Back-27-11-23/started-coding?icon=github&label=Jours%20depuis%20le%20début&color=blue)
-```
+![Static Badge](https://img.shields.io/badge/Start--Coding_%3A_Jour%2060-7F5A83)
+
 
 # Catalogue de Références de Matelas - Projet CRUD en PHP avec Laravel et Tailwind CSS
 
