@@ -66,8 +66,10 @@ class MarqueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Marque $marque)
+    public function destroy($id)
     {
-        //
+        Marque::destroy($id);
+       
+        return redirect('/matelassiers');
     }
 }

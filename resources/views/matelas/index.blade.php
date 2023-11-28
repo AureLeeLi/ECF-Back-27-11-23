@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex items-center justify-center space-x-12">
-        <h3 class="text-4xl font-bold my-8">Notre Catalogue Complet</h3>
+        <h3 class="text-4xl font-bold my-8">Notre Catalogue Complet <p class="text-sm text-center">(Total Ref: {{count($matelas)}})</p></h3>
         <a href="/catalogue/ajout" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]"><i class="fa-solid fa-plus pr-2" style="color: #ffffff;"></i>Ajouter</a>
     </div>
     <div class="flex flex-wrap mx-auto justify-center">
@@ -17,11 +17,11 @@
                         <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->largeur }} x {{$item->longueur}}
                     </p>
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}}€ | Promotion : {{$item->discount}} €
+                        <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}} € | Promotion : {{$item->discount}} €
                     </p>
                     @if ($item->discount) 
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-percent px-2" style="color: #000000;"></i> Prix remisé  : 
+                        <i class="fa-solid fa-percent pr-2" style="color: #000000;"></i> Prix remisé  : 
                         {{-- {{($item->price = $item->price-$item->discount)}} € --}}
                         - {{($item->discount/$item->price)*100}} %
                     </p>

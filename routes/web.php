@@ -42,3 +42,4 @@ Route::get('/matelassiers', [MarqueController::class, 'index']);
 Route::get('/matelassiers/ajout', [MarqueController::class, 'create']); 
 Route::post('/matelassiers/ajout', [MarqueController::class, 'store']); 
 Route::get('/matelassiers/{id}', [MarqueController::class, 'show']);
+Route::get('/matelassiers/{id}/supprimer', [MarqueController::class, 'destroy']); 

@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <a href="/catégories">Retour</a>
+    <a href="/categories">Retour</a>
     <h3 class="text-2xl font-bold my-4">Ajout de la nouvelle catégorie :</h3>
     
     @foreach ($errors->all() as $error)

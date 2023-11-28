@@ -8,6 +8,7 @@
         <span class="relative text-white text-2xl">Catégorie {{ $category->name }}</span>
         </span>
     </div>
+    <a href="/categories/{{$category->id}}/supprimer" class="bg-[#7c8479] text-xs text-center text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]" onclick='return confirm("Es-tu sûr de vouloir supprimer la catégorie {{$category->name}} ?")'><i class="fa-solid fa-trash pr-2" style="color: #070707;"></i>Supprimer la catégorie {{$category->name}}</a>
 </div>
 
 <div class="flex flex-wrap mx-auto justify-center">
@@ -22,11 +23,11 @@
                     <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->largeur }} x {{$item->longueur}}
                 </p>
                 <p class="text-sm w-4/5 mb-2">
-                    <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}}€ | Promotion : {{$item->discount}} €
+                    <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}} € | Promotion : {{$item->discount}} €
                 </p>
                 @if ($item->discount) 
                 <p class="text-sm w-4/5 mb-2">
-                    <i class="fa-solid fa-percent px-2" style="color: #000000;"></i> Prix remisé  : 
+                    <i class="fa-solid fa-percent pr-2" style="color: #000000;"></i> Prix remisé  : 
                     {{-- {{($item->price = $item->price-$item->discount)}} € --}}
                     - {{($item->discount/$item->price)*100}} %
                 </p>

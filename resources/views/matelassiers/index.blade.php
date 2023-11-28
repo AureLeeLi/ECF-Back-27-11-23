@@ -8,7 +8,7 @@
     <div class="grid grid-cols-3 gap-6 my-8">
         @foreach ($marques as $marque)
             <div class="border p-4 rounded shadow hover:bg-[#7c8479] hover:text-white">
-            <a href="/matelassiers/{{ $marque->id }}"><h2>{{ $marque->name }}</h2></a>
+            <a href="/matelassiers/{{ $marque->id }}" class="flex justify-around"><h2>{{ $marque->name }}</h2><p>{{count($marque->matelas)}}</p></a>
             </div>
         @endforeach
     </div>
