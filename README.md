@@ -10,7 +10,7 @@ Ce projet a été développé pour répondre aux besoins de Mr. Dodo, qui souhai
 - Laravel
 - Tailwind CSS
 
-![Logo Laravel](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/langfr-330px-Laravel.svg.png)) 
+![Logo Laravel](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/langfr-330px-Laravel.svg.png) 
 ![Logo Tailwind CSS](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/512px-Tailwind_CSS_Logo.svg.png?20230715030042)
 
 ## Fonctionnalités du projet
