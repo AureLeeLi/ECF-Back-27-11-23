@@ -95,5 +95,6 @@ class DatabaseSeeder extends Seeder
             'category_id' => $prestige,
             'marque_id' => $brandEpeda
         ]);
+
     }
 }
