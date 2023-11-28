@@ -17,7 +17,9 @@
         </div>
         <div class="md:flex md:text-md md:space-x-6 lg:space-x-8 text-amber-50">
             <a href="/" class="hover:underline underline-offset-8">Accueil</a>
-            <a href="/catalogue" class="hover:underline underline-offset-8">Notre catalogue</a>
+            <a href="/catalogue" class="hover:underline underline-offset-8">Références</a>
+            <a href="/categories" class="hover:underline underline-offset-8">Catégories</a>
+            <a href="/matelassiers" class="hover:underline underline-offset-8">Matelassiers</a>
         </div>
         {{-- <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
             @auth

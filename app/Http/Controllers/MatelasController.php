@@ -14,11 +14,9 @@ class MatelasController extends Controller
      */
     public function index()
     {
-          //méthode qui permet de retourner toutes les matelas de la base => SELECT * FROM matelas
           return view('matelas/index',[
             'matelas'=> Matelas::with('category')->get(),
             //tous les metelas WITH leur catégorie (inner join) et le get = all;
-            //optimiser le code et le nombre de requêtes
         ]);
     }
 

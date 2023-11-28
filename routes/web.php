@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MatelasController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MarqueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +27,18 @@ Route::post('/catalogue/ajout', [MatelasController::class, 'store']); //validati
 Route::get('/catalogue/{id}/modifier', [MatelasController::class, 'edit']); //formulaire de modification d'une référence
 Route::post('/catalogue/{id}/modifier', [MatelasController::class, 'update']); //validation des modifications
 Route::get('/catalogue/{id}/supprimer', [MatelasController::class, 'destroy']); //suppresion de la référence de la bdd
+
+
+//Categories Controller
+Route::get('/categories', [CategoryController::class, 'index']); //listing des catégories de matelas
+Route::get('/categories/ajout', [CategoryController::class, 'create']); //formulaire d'ajout d'une catégorie
+Route::post('/categories/ajout', [CategoryController::class, 'store']); //validation de l'ajout
+Route::get('/categories/{id}', [CategoryController::class, 'show']); //listing des matelas référencés par catégories
+Route::get('/categories/{id}/supprimer', [CategoryController::class, 'destroy']); //suppresion de la catégorie
+
+
+//Marque Controller
+Route::get('/matelassiers', [MarqueController::class, 'index']); 
+Route::get('/matelassiers/ajout', [MarqueController::class, 'create']); 
+Route::post('/matelassiers/ajout', [MarqueController::class, 'store']); 
+Route::get('/matelassiers/{id}', [MarqueController::class, 'show']);

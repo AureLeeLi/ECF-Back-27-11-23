@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="flex items-center justify-center space-x-12">
-        <h3 class="text-4xl font-bold my-8">Notre Catalogue</h3>
+        <h3 class="text-4xl font-bold my-8">Notre Catalogue Complet</h3>
         <a href="/catalogue/ajout" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]"><i class="fa-solid fa-plus pr-2" style="color: #ffffff;"></i>Ajouter</a>
     </div>
     <div class="flex flex-wrap mx-auto justify-center">
         @foreach ($matelas as $item)
         <div class="w-1/2 md:w-1/3 lg:w-1/3 my-4">
             <div class="flex flex-col justify-between h-full">
-            <a href="/film/{{ $item->id }}" class="group flex flex-col">
+            <a href="" class="group flex flex-col">
                     <img class="w-4/5 mb-2 h-[300px] object-cover rounded-lg group-hover:scale-105" src="{{ $item->cover }}" alt="{{ $item->name }}">
                     <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
 
