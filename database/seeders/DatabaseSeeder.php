@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        //test avec Factory
+        //test avec Factory pour travailler le front
         // Category::factory(4)->create();
         // Dimension::factory(5)->create();
         // Marque::factory(5)->create();
@@ -95,6 +95,13 @@ class DatabaseSeeder extends Seeder
             'category_id' => $prestige,
             'marque_id' => $brandEpeda
         ]);
+
+        Matelas::factory(20)->create(function(){
+            return [
+                'category_id' => rand(1,4),
+                'marque_id' => rand(1,5),
+            ];
+        });
 
     }
 }
