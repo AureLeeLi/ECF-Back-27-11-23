@@ -17,12 +17,17 @@
             <input type="text" name="name" value="{{ old('name') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <label for="cover">Image :</label>
             <input placeholder="media.jpg, .jpeg, .png, .gif link (url)" type="text" name="cover" value="{{ old('cover') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
-            <div class="w-full flex items-center justify-center space-x-4">
-                <label for="largeur">Largeur :</label>
-                <input type="number" name="largeur" value="{{ old('largeur') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50]  w-[35%]">
-                <label for="longueur">Longueur :</label>
-                <input  type="number" name="longueur" value="{{ old('longueur') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-[35%]">
+            <div class="w-full flex items-center space-x-4">
+                <label for="dimensions">Dimensions :</label>
+                @foreach ($dimensions as $dimension)
+                    <input type="checkbox" name="dimensions" value="{{$dimension->id}}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50]">{{$dimension->size}}
+                @endforeach
             </div>
+                <div>
+                    <label for="stock">Stock :</label>
+                        <input type="number" name="stock" value="" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+                </div>
+
             <label for="price">Prix :</label>
             <input placeholder="Prix 00.00" type="number" name="price" min="0"  step="0.01" value="{{ old('price') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <label for="discount">Promotion(optionnelle) :</label>

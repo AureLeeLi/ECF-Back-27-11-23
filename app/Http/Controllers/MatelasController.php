@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Marque;
 use App\Models\Matelas;
+use App\Models\Dimension;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 class MatelasController extends Controller
@@ -26,8 +28,9 @@ class MatelasController extends Controller
     {
         return view('matelas/create', [
             'categories' => Category::all()->sortBy('name'),
-            'marques' => Marque::all()->sortBy('name'),            
-            //utilisation des catégories dans le select input
+            'marques' => Marque::all()->sortBy('name'),
+            'dimensions' => Dimension::all()->sortBy('size'),
+            'stocks' => Stock::all()->sortBy('quantity'),           
         ]);
     }
 
@@ -53,8 +56,6 @@ class MatelasController extends Controller
         $item = new Matelas();
         $item->name = $request->name;
         $item->cover = $request->cover;
-        $item->largeur = $request->largeur;
-        $item->longueur = $request->longueur;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->category_id = $request->category;
