@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
 
 
         //ajout des stocks
-        Stock::factory(15)->create();
+        Stock::factory(10)->create();
 
         // insertion des 4 références du catalogue
         $item1 = Matelas::factory()->create([
@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => rand(1,4),
                 'marque_id' => rand(1,5),
                 'dimension_id' => rand(1,5),
-                'stock_id' => rand(1,15),
+                'stock_id' => rand(1,10),
                 'user_id' => rand(1,3)
             ];
         });

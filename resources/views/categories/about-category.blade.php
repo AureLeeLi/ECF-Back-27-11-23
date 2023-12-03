@@ -20,7 +20,7 @@
                 <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
 
                 <p class="text-sm w-4/5 mb-2">
-                    <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->largeur }} x {{$item->longueur}}
+                    <i class="fa-solid fa-ruler-combined pr-2" style="color: #000000;"></i> Dimensions : {{ $item->dimensions->size }}
                 </p>
                 <p class="text-sm w-4/5 mb-2">
                     <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}} € | Promotion : {{$item->discount}} €
@@ -44,6 +44,15 @@
                     {{-- methode marques dans le modele Matelas et propriétés de l'objet marques (id, name....)--}}
                      @endif
                 </p>
+                <h6 class="text-sm w-4/5 mb-2">
+                    En Stock :  @if ($item->stock_id)
+                    @if (($item->stocks->quantity) < 2)
+                        <p class="text-red">{{ $item->stocks->quantity }}</p>   
+                    @else
+                        <p> {{ $item->stocks->quantity }} </p>  
+                    @endif
+                     @endif
+                </h6>
             </a>
             {{-- @if (Auth::user() && Auth::user()->id == $movie->user_id) --}}
             {{-- on affiche modifier supprimer si on est connecté et qu'on a le film --}}

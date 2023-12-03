@@ -18,6 +18,18 @@ class Matelas extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function dimensions(){
+        return $this->belongsTo(Dimension::class, 'dimension_id');
+    }
+
+    public function stocks(){
+        return $this->belongsTo(Stock::class, 'stock_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
    
 
 }

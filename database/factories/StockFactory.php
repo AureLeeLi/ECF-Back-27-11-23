@@ -17,7 +17,7 @@ class StockFactory extends Factory
     public function definition(): array
     {
         return [
-            'quantity' => fake()->numberBetween(1,15),
+            'quantity' => fake()->numberBetween(1,10),
         ];
     }
 }
