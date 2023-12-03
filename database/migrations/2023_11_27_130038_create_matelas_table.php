@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('cover');
-            $table->integer('longueur');
-            $table->integer('largeur');
             $table->float('price');
             $table->integer('discount')->nullable();
+            $table->boolean('available');
+            $table->foreignId('dimension_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignId('marque_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('stock_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

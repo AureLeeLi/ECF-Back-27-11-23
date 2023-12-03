@@ -11,9 +11,9 @@
 </head>
 <body class="font-[Nunito] flex flex-col justify-between h-screen text-[#112A46]">
 
-    <nav class="bg-[#abb1a3] flex items-center justify-center space-x-32 p-8 mb-6 text-xl font-bold">
+    <nav class="bg-[#abb1a3] flex items-center justify-center space-x-32 py-2 mb-6 text-xl font-bold">
         <div>
-            <img src="\uploads\logo fond transparent.png" alt="logo Literie 3000" class="h-16 lg:h-24">
+            <img src="\uploads\logoNew.png" alt="logo Literie 3000" class="h-20 lg:h-28">
         </div>
         <div class="md:flex md:text-md md:space-x-6 lg:space-x-8 text-amber-50">
             <a href="/" class="hover:underline underline-offset-8">Accueil</a>
@@ -21,18 +21,18 @@
             <a href="/categories" class="hover:underline underline-offset-8">Catégories</a>
             <a href="/matelassiers" class="hover:underline underline-offset-8">Matelassiers</a>
         </div>
-        {{-- <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
+        <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
             @auth
-            <p>{{Auth::user()->email}}</p>
+            <p>{{Auth::user()->userId}}</p>
               <div class="relative">
                 <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww" alt="">
                 <span class="top-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
             </div>
             <a href="/logout"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
             @else
-              <a href="/login">Connexion</a>
+              <a href="/login" class="hover:underline underline-offset-8">Connexion</a>
             @endauth
-        </div> --}}
+        </div>
     </nav>
 
     <div class="max-w-5xl mx-auto px-3 py-6 w-full">
@@ -41,10 +41,10 @@
 
     </div>
 
-    <footer class="text-2xl text-white font-bold bg-[#7c8479] text-center flex items-center justify-center">
+    <footer class="text-xl text-black font-bold bg-[#7c8479] text-center flex items-center justify-center py-4 space-x-4">
 
-        <img src="\uploads\3.png" alt="logo Literie 3000" class="h-12">
-        <p>Literie 3000 &copy; {{ date('Y')}}</p>
+        <img src="\uploads\logoNew.png" alt="logo Literie 3000" class="h-12">
+        <p> &copy; {{ date('Y')}}</p>
 
     </footer>
 </body>
