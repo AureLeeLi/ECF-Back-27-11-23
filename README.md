@@ -40,7 +40,9 @@ Assurez-vous d'avoir [Composer](https://getcomposer.org/) et [Laravel](https://l
 ## Auteurs
 Ce projet a été réalisé par moi-même pour l'Evaluation Continue de Formation (DWWM) en réponse à la demande de Mr. Dodo.
 
-### Fonctionnalités supplémentaires 
+### Fonctionnalités supplémentaires en cours de développement 
 - Pouvoir accéder à une catégorie ou un fournisseur et voir les références associées ainsi que le stock. 
 - Pouvoir créér, mettre a jour ou supprimer une catégorie ou un fournisseur.
-- Proposition d'un nouveau logo et une palette graphique pour ce site 
+- alerte stocks et gestion 
+- Proposition d'un nouveau logo et une palette graphique pour ce site
+- authentification des employés 
