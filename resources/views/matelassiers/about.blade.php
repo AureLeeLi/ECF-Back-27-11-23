@@ -54,14 +54,13 @@
                      @endif
                 </h6>
             </a>
-            {{-- @if (Auth::user() && Auth::user()->id == $movie->user_id) --}}
-            {{-- on affiche modifier supprimer si on est connecté et qu'on a le film --}}
+            @if (Auth::user() && Auth::user()->id == $item->user_id)
             <div class="flex text-center space-x-2">
                 <a href="/catalogue/{{$item->id}}/modifier" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]"><i class="fa-regular fa-pen-to-square" style="color: #070707;"></i></a>
                 <a href="/catalogue/{{$item->id}}/supprimer" class="bg-[#7c8479] text-white rounded-lg px-6 py-2 my-4 hover:bg-white hover:text-[#7c8479]" onclick='return confirm("Es-tu sûr de vouloir supprimer la référence {{$item->name}} ?")'><i class="fa-solid fa-trash" style="color: #070707;"></i></a>
                 {{-- on click = pop confirmation de suppression --}}
             </div>
-            {{-- @endif --}}
+            @endif
         </div>
     </div>
         @endforeach

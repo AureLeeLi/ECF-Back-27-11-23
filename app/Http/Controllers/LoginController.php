@@ -32,8 +32,8 @@ class LoginController extends Controller
         
         //redirection avec erreur sur la page de login
         return back()->withErrors([
-            'userId' => 'Identifiants incorrects.',
-        ])->onlyInput('userId'); //mail qui sera laissé dans le champ
+            'email' => 'Identifiants incorrects.',
+        ])->onlyInput('email'); //mail qui sera laissé dans le champ
     }
 
     public function logout(Request $request): RedirectResponse
