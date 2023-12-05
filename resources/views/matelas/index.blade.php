@@ -19,13 +19,12 @@
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-tag pr-2" style="color: #000000;"></i> Prix : {{$item->price}} € | Promotion : {{$item->discount}} €
                     </p>
-                    {{-- @if ($item->discount) 
+                    @if ($item->discount) 
                     <p class="text-sm w-4/5 mb-2">
-                        <i class="fa-solid fa-percent pr-2" style="color: #000000;"></i> Prix remisé  : 
-                        {{-- {{($item->price = $item->price-$item->discount)}} € --}}
-                        {{-- - {{($item->discount/$item->price)*100}} % --}}
-                    {{-- </p>
-                    @endif --}}
+                        <i class="fa-solid fa-percent pr-2" style="color: #000000;"></i> Remise : 
+                       - {{$item->discount($item->price)}} %
+                        </p>
+                    @endif
                     <p class="text-sm w-4/5 mb-2">
                         <i class="fa-solid fa-bed pr-2" style="color: #000000;"></i> Catégorie :  @if ($item->category_id)
                         {{ $item->category?->name }}

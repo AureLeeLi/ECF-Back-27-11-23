@@ -31,8 +31,9 @@ class Matelas extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    // public function  hasDiscount($discount){
-        //
-    // }
+    public function  discount($price){
+        $price = number_format((($this->discount/$price)*100), 2, ',', ' ' );
+        return $price;
+    }
 
 }

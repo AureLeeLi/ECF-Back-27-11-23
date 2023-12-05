@@ -28,9 +28,9 @@
                 <i class="fa-solid fa-user-tie text-3xl" style="color: #ffffff;"></i>
                 <p>{{Auth::user()->name}}</p>
                 {{-- <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww" alt=""> --}}
-                <span class="top-0 left-8 absolute  w-3 h-3 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                <span class="top-0 left-10 absolute  w-3 h-3 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
             </div>
-            <a href="/logout"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
+            <a href="/logout"><i class="fa-solid fa-right-from-bracket text-2xl" style="color: #ffffff;"></i></a>
             @else
               <a href="/login" class="hover:underline underline-offset-8">Connexion</a>
             @endauth
