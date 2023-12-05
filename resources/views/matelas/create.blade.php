@@ -20,12 +20,12 @@
             <div class="w-full flex items-center space-x-4">
                 <label for="dimensions">Dimensions :</label>
                 @foreach ($dimensions as $dimension)
-                    <input type="checkbox" name="dimensions" value="{{$dimension->id}}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50]">{{$dimension->size}}
+                    <input type="checkbox" @selected($dimension->id == old('dimension')) name="dimension" value="{{$dimension->id}}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50]">{{$dimension->size}}
                 @endforeach
             </div>
                 <div>
                     <label for="stock">Stock :</label>
-                        <input type="number" name="stock" value="" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+                        <input type="number" name="stocks" value="" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
                 </div>
 
             <label for="price">Prix :</label>

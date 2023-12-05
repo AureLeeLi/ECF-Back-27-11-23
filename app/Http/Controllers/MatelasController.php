@@ -44,10 +44,10 @@ class MatelasController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'cover' => 'required|url',
-            'largeur' => 'required|numeric|min:90|max:200',
-            'longueur' => 'required|numeric|min:190|max:200',
+            'dimension' => 'exists:dimensions,id',
+            'stocks' => 'numeric|min:2|max:10',
             'price' => 'required|numeric',
-            'discount' => 'nullable|numeric|min:1|max:9999',
+            'discount' => 'nullable|numeric|min:1|max:80',
             'category' => 'exists:categories,id',
             'marque' =>'exists:marques,id'
         ]);
@@ -56,8 +56,11 @@ class MatelasController extends Controller
         $item = new Matelas();
         $item->name = $request->name;
         $item->cover = $request->cover;
+        $item->dimension_id = $request->dimension;
+        $item->stock_id = $request->stocks;
         $item->price = $request->price;
         $item->discount = $request->discount;
+        $item->available = 1;
         $item->category_id = $request->category;
         $item->marque_id = $request->marque;
         $item->save();
@@ -94,8 +97,8 @@ class MatelasController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'cover' => 'required|url',
-            'largeur' => 'required|numeric|min:90|max:200',
-            'longueur' => 'required|numeric|min:190|max:200',
+            'dimension' => 'exists:dimensions,id',
+            'stocks' => 'numeric|min:2|max:10',
             'price' => 'required|numeric|between:0.01,9999.99',
             'discount' => 'nullable|numeric|min:1|max:9999',
             'category' => 'exists:categories,id',
@@ -105,10 +108,11 @@ class MatelasController extends Controller
 
         $item->name = $request->name;
         $item->cover = $request->cover;
-        $item->largeur = $request->largeur;
-        $item->longueur = $request->longueur;
+        $item->dimension_id = $request->dimension;
+        $item->stock_id = $request->stocks;
         $item->price = $request->price;
         $item->discount = $request->discount;
+        $item->available = 1;
         $item->category_id = $request->category;
         $item->marque_id = $request->marque;
         $item->save();
