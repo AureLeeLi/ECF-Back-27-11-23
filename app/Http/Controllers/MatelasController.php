@@ -44,7 +44,8 @@ class MatelasController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'cover' => 'required|url',
-            'dimension' => 'exists:dimensions,id',
+            'dimensions' => 'required|array',
+            'dimensions.*' => 'required|exists:dimensions,id',
             'stocks' => 'numeric|min:2|max:10',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric|min:1|max:80',
@@ -56,7 +57,7 @@ class MatelasController extends Controller
         $item = new Matelas();
         $item->name = $request->name;
         $item->cover = $request->cover;
-        $item->dimension_id = $request->dimension;
+        $item->dimensions()->sync($request->dimensions);
         $item->stock_id = $request->stocks;
         $item->price = $request->price;
         $item->discount = $request->discount;
