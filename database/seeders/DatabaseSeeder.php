@@ -37,13 +37,16 @@ class DatabaseSeeder extends Seeder
         //     ];
         // });
         User::factory()->create([
+            'name' => 'Jean-Michel',
             'email' => 'jeanmichel@literie3000.fr',
         ]);
 
         User::factory()->create([
+            'name' => 'Jocelyne',
             'email' => 'jocelyne@literie3000.fr',
         ]);
         User::factory()->create([
+            'name' => 'Frédéric',
             'email' => 'frederic@literie3000.fr',
         ]);
         
@@ -86,6 +89,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => User::factory()->create()
         ]);
 
+    
         $item2 = Matelas::factory()->create([
             'name' => 'Sansonges',
             'cover' => 'https://www.ikea.com/fr/fr/images/products/afjaell-matelas-en-mousse-mi-ferme-blanc__1027660_pe834973_s5.jpg?f=xxs',
@@ -98,7 +102,6 @@ class DatabaseSeeder extends Seeder
             'stock_id' => Stock::factory()->create(),
             'user_id' => User::factory()->create()
         ]);
-
         
         $item3 = Matelas::factory()->create([
             'name' => 'Tallelattes',
@@ -125,6 +128,8 @@ class DatabaseSeeder extends Seeder
             'stock_id' => Stock::factory()->create(),
             'user_id' => User::factory()->create()
         ]);
+
+    
 
         Matelas::factory(20)->create(function(){
             return [

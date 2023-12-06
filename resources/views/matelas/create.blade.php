@@ -16,7 +16,7 @@
             <label for="name">Nom du modèle :</label>
             <input type="text" name="name" value="{{ old('name') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <label for="cover">Image :</label>
-            <input placeholder="media.jpg, .jpeg, .png, .gif link (url)" type="text" name="cover" value="{{ old('cover') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
+            <input type="file" name="cover" id="cover" value="{{ old('cover') }}" class="my-2 py-2 px-2 border-2 rounded-lg border-[bg-slate-50] w-full">
             <div class="w-full flex items-center space-x-4">
                 <label for="dimensions">Dimensions :</label>
                 @foreach ($dimensions as $dimension)
