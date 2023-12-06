@@ -28,8 +28,7 @@
                 @if ($item->discount) 
                 <p class="text-sm w-4/5 mb-2">
                     <i class="fa-solid fa-percent pr-2" style="color: #000000;"></i> Prix remisé  : 
-                    {{-- {{($item->price = $item->price-$item->discount)}} € --}}
-                    - {{($item->discount/$item->price)*100}} %
+                    - {{$item->discount($item->price)}} % 
                 </p>
                 @endif
                 <p class="text-sm w-4/5 mb-2">

@@ -9,8 +9,8 @@ class Dimension extends Model
 {
     use HasFactory;
     
-    public function matelas()
-    {
-        return $this->hasMany(Matelas::class);
-    }
+    // public function matelas()
+    // {
+    //     return $this->hasMany(Matelas::class);
+    // }
 }
