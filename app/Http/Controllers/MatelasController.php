@@ -80,7 +80,9 @@ class MatelasController extends Controller
       
         return view('matelas/edit', [
             'categories' => Category::all()->sortBy('name'),
-            'marques' => Marque::all()->sortBy('name'),   
+            'marques' => Marque::all()->sortBy('name'),  
+            'dimensions' => Dimension::all()->sortBy('size'),
+            'stocks' => Stock::all()->sortBy('quantity'),    
             'item' => $item,
         ]);
 
@@ -96,12 +98,13 @@ class MatelasController extends Controller
         
         //vérif des champs avant insertion
         $request->validate([
-            'name' => 'required|min:2',
+            'name' => 'required|unique:matelas,name,'.$item->id,
             'cover' => 'required|url',
-            'dimension' => 'exists:dimensions,id',
+            'dimensions' => 'required|array',
+            'dimensions.*' => 'required|exists:dimensions,id',
             'stocks' => 'numeric|min:2|max:10',
-            'price' => 'required|numeric|between:0.01,9999.99',
-            'discount' => 'nullable|numeric|min:1|max:9999',
+            'price' => 'required|numeric',
+            'discount' => 'nullable|numeric|min:1|max:80',
             'category' => 'exists:categories,id',
             'marque' =>'exists:marques,id'
         ]);
@@ -109,7 +112,7 @@ class MatelasController extends Controller
 
         $item->name = $request->name;
         $item->cover = $request->cover;
-        $item->dimension_id = $request->dimension;
+        $item->dimensions()->sync($request->dimensions);
         $item->stock_id = $request->stocks;
         $item->price = $request->price;
         $item->discount = $request->discount;
