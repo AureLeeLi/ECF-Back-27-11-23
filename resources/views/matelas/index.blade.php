@@ -11,6 +11,7 @@
             <div class="flex flex-col justify-between h-full">
             <a href="" class="group flex flex-col">
                     <img class="w-4/5 mb-2 h-[300px] object-cover rounded-lg group-hover:scale-105" src="{{ $item->cover }}" alt="{{ $item->name }}">
+                    {{-- chemin cover avec upload src="{{ asset('photos/' . $item->cover) }}" --}}
                     <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
 
                     <p class="text-sm w-4/5 mb-2">

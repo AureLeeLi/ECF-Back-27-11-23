@@ -43,7 +43,7 @@ class MatelasController extends Controller
         //vérif des champs avant insertion
         $request->validate([
             'name' => 'required|min:2',
-            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cover' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'dimensions' => 'required|array',
             // 'dimensions.*' => 'required|exists:dimensions,id',
             'stocks' => 'numeric|min:2|max:10',
@@ -56,7 +56,7 @@ class MatelasController extends Controller
 
         $item = new Matelas();
         $item->name = $request->name;
-        // $item->dimensions()->sync($request->dimension_id);
+        $item->dimension_id = 1;
         $item->stock_id = $request->stocks;
         $item->price = $request->price;
         $item->discount = $request->discount;
@@ -65,7 +65,8 @@ class MatelasController extends Controller
         $item->marque_id = $request->marque;
 
         if ($request->hasFile('cover')) {
-            $coverName = time().'.'.$request->cover->extension();
+            $cover = $request->file('cover');
+            $coverName = time().'.'.$cover->extension();
             $request->cover->move(public_path('photos'), $coverName);
             $item->cover = $coverName;
         }
@@ -104,7 +105,7 @@ class MatelasController extends Controller
         //vérif des champs avant insertion
         $request->validate([
             'name' => 'required|unique:matelas,name,'.$item->id,
-            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cover' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'dimensions' => 'required|array',
             // 'dimensions.*' => 'required|exists:dimensions,id',
             'stocks' => 'numeric|min:2|max:10',
@@ -116,7 +117,7 @@ class MatelasController extends Controller
         //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
 
         $item->name = $request->name;
-        // $item->dimension()->sync($request->dimension_id);
+        $item->dimension_id = 1;
         $item->stock_id = $request->stocks;
         $item->price = $request->price;
         $item->discount = $request->discount;
@@ -125,7 +126,8 @@ class MatelasController extends Controller
         $item->marque_id = $request->marque;
         
         if ($request->hasFile('cover')) {
-            $coverName = time().'.'.$request->cover->extension();
+            $cover = $request->file('cover');
+            $coverName = time().'.'.$cover->extension();
             $request->cover->move(public_path('photos'), $coverName);
             $item->cover = $coverName;
         }
