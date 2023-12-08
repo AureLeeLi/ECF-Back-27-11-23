@@ -9,8 +9,10 @@ class Stock extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['quantity']; 
+
     public function matelas()
     {
-        return $this->hasMany(Matelas::class);
+        return $this->belongsTo(Matelas::class, 'matelas_id');
     }
 }

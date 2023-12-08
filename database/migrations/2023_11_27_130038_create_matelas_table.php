@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreignId('dimension_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignId('marque_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('stock_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->timestamps();
         });

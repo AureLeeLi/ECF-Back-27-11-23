@@ -40,12 +40,12 @@
                          @endif
                     </p>
                     <h6 class="text-sm w-4/5 mb-2">
-                        En Stock :  @if ($item->stock_id)
-                        @if (($item->stocks->quantity) < 2)
+                        En Stock :  @if ($item->stock)
+                        @if (($item->stock->quantity) < 2)
                          {{-- methode stocks dans le modele Matelas et propriétés de l'objet stocks (quantity)--}}
-                            <p class="text-red">{{ $item->stocks->quantity }}</p>   
+                            <p class="text-red">{{ $item->stock->quantity }}</p>   
                         @else
-                            <p> {{ $item->stocks->quantity }} </p>  
+                            <p> {{ $item->stock->quantity }} </p>  
                         @endif
                          @endif
                     </h6>

@@ -71,10 +71,6 @@ class DatabaseSeeder extends Seeder
         $dim180x200= Dimension::factory()->create(['size' => '180x190']);
         $dim200x200= Dimension::factory()->create(['size' => '200x200']);
 
-
-        //ajout des stocks
-        Stock::factory(10)->create();
-
         // insertion des 4 références du catalogue
         $item1 = Matelas::factory()->create([
             'name' => 'Malm Odo',
@@ -85,7 +81,6 @@ class DatabaseSeeder extends Seeder
             'dimension_id' => $dim90x190,
             'category_id' => $confort,
             'marque_id' => $brandEpeda,
-            'stock_id' => Stock::factory()->create(),
             'user_id' => User::factory()->create()
         ]);
 
@@ -99,7 +94,6 @@ class DatabaseSeeder extends Seeder
             'dimension_id' => $dim90x190,
             'category_id' => $assurance,
             'marque_id' => $brandDreamway,
-            'stock_id' => Stock::factory()->create(),
             'user_id' => User::factory()->create()
         ]);
         
@@ -112,7 +106,6 @@ class DatabaseSeeder extends Seeder
             'dimension_id' => $dim140x190,
             'category_id' => $essentiel,
             'marque_id' => $brandBultex,
-            'stock_id' => Stock::factory()->create(),
             'user_id' => User::factory()->create()
         ]);
        
@@ -125,7 +118,6 @@ class DatabaseSeeder extends Seeder
             'dimension_id' => $dim160x200,
             'category_id' => $prestige,
             'marque_id' => $brandEpeda,
-            'stock_id' => Stock::factory()->create(),
             'user_id' => User::factory()->create()
         ]);
 
@@ -136,10 +128,19 @@ class DatabaseSeeder extends Seeder
                 'category_id' => rand(1,4),
                 'marque_id' => rand(1,5),
                 'dimension_id' => rand(1,5),
-                'stock_id' => rand(1,10),
                 'user_id' => rand(1,3)
             ];
         });
+
+        //ajout des stocks
+        $matelas = Matelas::all();
+        foreach ($matelas as $item) {
+            if (!$item->stock) {
+                // S'il n'y a pas de stock associé au matelas, crée un nouveau stock pour ce matelas
+                $stock = Stock::factory()->create(['quantity' => rand(2, 20)]);
+                $item->stock()->save($stock);
+            }
+        }
 
     }
 }

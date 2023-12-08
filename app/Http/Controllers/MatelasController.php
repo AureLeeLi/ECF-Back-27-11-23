@@ -108,7 +108,7 @@ class MatelasController extends Controller
             'cover' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'dimensions' => 'required|array',
             // 'dimensions.*' => 'required|exists:dimensions,id',
-            'stocks' => 'numeric|min:2|max:10',
+            'stocks' => 'numeric|min:2|max:20',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric|min:1|max:80',
             'category' => 'exists:categories,id',

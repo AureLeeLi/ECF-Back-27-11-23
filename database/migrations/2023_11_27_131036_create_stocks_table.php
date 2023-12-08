@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('matelas_id')->nullable()->constrained()->cascadeOnDelete();
             $table->integer('quantity');
             $table->timestamps();
         });

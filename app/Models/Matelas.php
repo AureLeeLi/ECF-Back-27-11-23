@@ -23,8 +23,8 @@ class Matelas extends Model
         return $this->belongsTo(Dimension::class, 'dimension_id');
     }
 
-    public function stocks(){
-        return $this->belongsTo(Stock::class, 'stock_id');
+    public function stock(){
+        return $this->hasOne(Stock::class);
     }
 
     public function user(){
