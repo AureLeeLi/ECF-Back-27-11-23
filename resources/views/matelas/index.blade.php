@@ -8,7 +8,7 @@
     <div class="flex flex-wrap mx-auto justify-center">
         @foreach ($matelas as $item)
         <div class="w-1/2 md:w-1/3 lg:w-1/3 my-4">
-            <div class="flex flex-col justify-between h-full">
+            <div class="flex flex-col justify-between h-full {{ $item->stock->quantity < 5 ? 'text-red-500 font-bold' : '' }}">
             <a href="" class="group flex flex-col">
                     <img class="w-4/5 mb-2 h-[300px] object-cover rounded-lg group-hover:scale-105" src="{{ $item->cover }}" alt="{{ $item->name }}">
                     {{-- chemin cover avec upload src="{{ asset('photos/' . $item->cover) }}" --}}
@@ -39,15 +39,10 @@
                         {{-- methode marques dans le modele Matelas et propriétés de l'objet marques (id, name....)--}}
                          @endif
                     </p>
-                    <h6 class="text-sm w-4/5 mb-2">
+                    <h6 class="text-sm w-4/5 mb-2 {{ $item->stock->quantity < 5 ? 'text-xl font-bold' : '' }}">
                         En Stock :  @if ($item->stock)
-                        @if (($item->stock->quantity) < 2)
-                         {{-- methode stocks dans le modele Matelas et propriétés de l'objet stocks (quantity)--}}
-                            <p class="text-red">{{ $item->stock->quantity }}</p>   
-                        @else
                             <p> {{ $item->stock->quantity }} </p>  
                         @endif
-                         @endif
                     </h6>
                 </a>
                 @if (Auth::user() && Auth::user()->id == $item->user_id)

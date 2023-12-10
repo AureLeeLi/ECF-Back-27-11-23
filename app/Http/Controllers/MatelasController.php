@@ -44,9 +44,8 @@ class MatelasController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'cover' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'dimensions' => 'required|array',
-            // 'dimensions.*' => 'required|exists:dimensions,id',
-            'stocks' => 'numeric|min:2|max:10',
+            'dimension_id' => 'required|exists:dimensions,id',
+            'stock_quantity' => 'required|integer|min:1',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric|min:1|max:80',
             'category' => 'exists:categories,id',
@@ -56,8 +55,7 @@ class MatelasController extends Controller
 
         $item = new Matelas();
         $item->name = $request->name;
-        $item->dimension_id = 1;
-        $item->stock_id = $request->stocks;
+        $item->dimension_id = $request->input('dimension_id');
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->available = 1;
@@ -71,9 +69,13 @@ class MatelasController extends Controller
             $item->cover = $coverName;
         }
         $item->save();
-       
+        $stock = new Stock();
+        $stock->quantity = $request->stock_quantity;
+        $stock->matelas_id = $item->id; // Associer le stock au matelas créé
+        $stock->save();
         return redirect('/catalogue');
     }
+
     
 
 
@@ -106,9 +108,8 @@ class MatelasController extends Controller
         $request->validate([
             'name' => 'required|unique:matelas,name,'.$item->id,
             'cover' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'dimensions' => 'required|array',
-            // 'dimensions.*' => 'required|exists:dimensions,id',
-            'stocks' => 'numeric|min:2|max:20',
+            'dimension_id' => 'required|exists:dimensions,id',
+            'stock_quantity' => 'required|integer|min:1',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric|min:1|max:80',
             'category' => 'exists:categories,id',
@@ -117,8 +118,7 @@ class MatelasController extends Controller
         //si erreur laravel renvoit le formulaire avec les erreurs sinon on passe au save
 
         $item->name = $request->name;
-        $item->dimension_id = 1;
-        $item->stock_id = $request->stocks;
+        $item->dimension_id = $request->input('dimension_id');
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->available = 1;
@@ -132,9 +132,24 @@ class MatelasController extends Controller
             $item->cover = $coverName;
         }
         $item->save();
+        $stock = Stock::where('matelas_id', $item->id)->first();
+
+        if ($stock) {
+            // Si un stock est associé à ce matelas, mettez à jour la quantité
+            $stock->quantity = $request->stock_quantity;
+            $stock->save();
+        } else {
+            // Si aucun stock n'est associé, vous pouvez en créer un nouveau
+            $stock = new Stock();
+            $stock->quantity = $request->stock_quantity;
+            $stock->matelas_id = $item->id;
+            $stock->save();
+        }
+        
        
         return redirect('/catalogue');
-    }
+    
+}
     
     /**
      * Remove the specified resource from storage.

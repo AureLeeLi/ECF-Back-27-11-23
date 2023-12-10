@@ -14,7 +14,7 @@
 <div class="flex flex-wrap mx-auto justify-center">
     @foreach ($matelas as $item)
     <div class="w-1/2 md:w-1/3 lg:w-1/3 my-4">
-        <div class="flex flex-col justify-between h-full">
+        <div class="flex flex-col justify-between h-full {{ $item->stock->quantity < 5 ? 'text-red-500 font-bold' : '' }}">
         <a href="/" class="group flex flex-col">
                 <img class="w-4/5 mb-2 h-[300px] object-cover rounded-lg group-hover:scale-105" src="{{ $item->cover }}" alt="{{ $item->name }}">
                 <h3 class="text-xl font-bold w-4/5 underline group-hover:no-underline text-sm text-gray-600 my-4">{{ $item->name }}</h3>
@@ -43,14 +43,10 @@
                     {{-- methode marques dans le modele Matelas et propriétés de l'objet marques (id, name....)--}}
                      @endif
                 </p>
-                <h6 class="text-sm w-4/5 mb-2">
-                    En Stock :  @if ($item->stock_id)
-                    @if (($item->stocks->quantity) < 2)
-                        <p class="text-red">{{ $item->stocks->quantity }}</p>   
-                    @else
-                        <p> {{ $item->stocks->quantity }} </p>  
+                <h6 class="text-sm w-4/5 mb-2 {{ $item->stock->quantity < 5 ? 'text-xl font-bold' : '' }}">
+                    En Stock :  @if ($item->stock)
+                        <p> {{ $item->stock->quantity }} </p>  
                     @endif
-                     @endif
                 </h6>
             </a>
             @if (Auth::user() && Auth::user()->id == $item->user_id)
