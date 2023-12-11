@@ -2,10 +2,6 @@
 
 @section('content')
 
-@error('email')
-    <p>{{ $message }}</p>
-@enderror
-
     <form action="" method="post" class="w-4/5 flex flex-col mx-auto justifay-center">
         @csrf
         <input placeholder="Email" type="text" name="email" value="{{ old('email')}}" class="rounded-lg w-1/2 my-6 mx-auto">

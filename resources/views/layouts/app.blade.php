@@ -34,6 +34,9 @@
               <a href="/login" class="hover:underline underline-offset-8">Connexion</a>
             @endauth
         </div>
+        <div class="text-center text-sm lg:flex lg:items-center space-x-4 font-bold text-amber-50">
+            <a href="/register" class="hover:underline underline-offset-8">S'Enregistrer</a>
+        </div>
     </nav>
 
     <div class="max-w-5xl mx-auto px-3 py-6 w-full">

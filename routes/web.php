@@ -5,6 +5,7 @@ use App\Http\Controllers\MatelasController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,3 +51,7 @@ Route::get('/matelassiers/{id}/supprimer', [MarqueController::class, 'destroy'])
 Route::get('/login', [LoginController::class, 'login'])->name('login');//afficher le formulaire login
 Route::post('/login', [LoginController::class, 'authenticate']);//traiter le formulaire login
 Route::get('/logout', [LoginController::class, 'logout']);//deconnexion
+
+//Register
+Route::get('/register', [RegisterController::class, 'create']); //form enregistrement
+Route::post('/register', [RegisterController::class, 'store']); //ajout d'un nvl employé
